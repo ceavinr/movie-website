@@ -33,15 +33,16 @@ function showMovies(url, data) {
     main.innerHTML = '';
 
     data.forEach(movie => {
-        const {title, poster_path, vote_average, overview, id} = movie;
+        const {title, poster_path, vote_average, id} = movie;
         const movieElement = document.createElement('div');
         movieElement.classList.add('movie-list');
         movieElement.innerHTML = `
             <img class="movie-list-img" src="${poster_path? IMG_URL+poster_path:"http://via.placeholder.com/1080x1580"}" alt="${title}">
     
             <div class="movie-list-info">
-                <h3 class="movie-list-title">${title}</h3>
-                <span class="${getColor(vote_average)}">${vote_average}</span>
+                <h3 id="titles${id}" class="movie-list-title">${title}</h3>
+                
+                <span class="${getColor(vote_average)}"><i class="fas fa-star"></i> ${vote_average}</span>
             </div>
             
             <div class="movie-list-desc">
@@ -62,7 +63,7 @@ function getColor(vote) {
     if(vote >= 8){
         return "green"
     }else if(vote >= 5){
-        return "orange"
+        return "yellow"
     }else{
         return "red"
     }
@@ -111,12 +112,15 @@ function closeModal() {
 // TOGGLE
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
-  ".main, .movie-list-title, .navbar-container, .toggle, .search, .main-title, .sub-title, #source"
+    ".main, .navbar-container, .toggle, .search"
 );
 
+
 ball.addEventListener("click", () => {
-  items.forEach((item) => {
-    item.classList.toggle("active");
-  });
-  ball.classList.toggle("active");
+    items.forEach((item) => {
+        item.classList.toggle("active");
+    });
+    ball.classList.toggle("active");
 });
+
+
