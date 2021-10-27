@@ -1,0 +1,57 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" 
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <title>Movie Design</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container"><h1 class="logo">MovieHub</h1></div>
+                
+            <form id="form">
+                <input class="search" type="text" placeholder="Search Movie" id="search">
+            </form>
+
+            <div class="profile-container">
+                <img class="profile-picture" src="img/profile.jpg" alt="">
+                <div class="profile-text-container">
+                    <span class="profile-text">Ceavin Rufus</span>
+                    <i class="fa-solid fa-circle-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="toggle">
+                <i class="fas fa-moon toggle-icon"></i>
+                <i class="fas fa-sun toggle-icon"></i>
+                <div class="toggle-ball"></div>
+            </div>
+        </div>
+    </div>
+
+    <h1 class="main-title">List of Movies</h1>
+    <h2 class="sub-title">API Source: <span id="source">themoviedb.org</span></h2>
+
+    <div id="myNav" class="overlay">
+
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeModal()">&times;</a>
+      
+        <!-- Overlay content -->
+        <div class="overlay-content" id="overlay-content"></div>
+        
+
+    </div>
+
+    <main class="main" id="main"></main>
+    <script src="script.js"></script>
+</body>
+</html>
