@@ -480,9 +480,6 @@ main{
     .fas.fa-search{
         display: flex;
     }
-    .movie-list-img{
-        display: none;
-    }
     .movie-list-title{
         font-size: 9px;
     }
@@ -509,6 +506,11 @@ main{
     }
 }
 
+@media only screen and (max-width: 385px) {
+    .movie-list-img{
+        display: none;
+    }
+}
 @media only screen and (max-width: 280px) {
     .fas.fa-search{
         transform: translateX(-5px);
