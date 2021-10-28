@@ -37,10 +37,10 @@ function showMovies(url, data) {
         const movieElement = document.createElement('div');
         movieElement.classList.add('movie-list');
         movieElement.innerHTML = `
-            <img class="movie-list-img" src="${poster_path? IMG_URL+poster_path:"http://via.placeholder.com/1080x1580"}" alt="${title}">
+            <img id="img${id}" class="movie-list-img" src="${poster_path? IMG_URL+poster_path:"http://via.placeholder.com/1080x1580"}" alt="${title}">
     
-            <div class="movie-list-info">
-                <h3 id="titles${id}" class="movie-list-title">${title}</h3>
+            <div id="info${id}" class="movie-list-info">
+                <h3 class="movie-list-title">${title}</h3>
                 
                 <span class="${getColor(vote_average)}"><i class="fas fa-star"></i> ${vote_average}</span>
             </div>
@@ -52,7 +52,15 @@ function showMovies(url, data) {
         `
         main.appendChild(movieElement);
 
+        document.getElementById("img"+id).addEventListener('click', () => {
+            console.log(id)
+            openModal(url, movie)
+        })
         document.getElementById(id).addEventListener('click', () => {
+            console.log(id)
+            openModal(url, movie)
+        })
+        document.getElementById("info"+id).addEventListener('click', () => {
             console.log(id)
             openModal(url, movie)
         })
