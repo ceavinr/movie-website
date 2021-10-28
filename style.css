@@ -19,7 +19,7 @@ body{
 .navbar-container{
     display: flex;
     align-items: center;
-    padding: 0 10px;
+    padding-left: 10px;
     height: 100%;
     color: white;
     font-family: "Sen", sans-serif;
@@ -27,23 +27,35 @@ body{
 
 .logo-container{
     flex: 1;
+    transition: all 0.5s ease-in-out;
 }
 
 .logo{
     font-family: "Sen", sans-serif;
     font-size: 30px;
     color: orange;
+    transition: all 0.5s ease-in-out;
+}
+
+.logo.vanish{
+    display: none;
 }
 
 .search{
-    flex: 6;
     background-color: transparent;
     border: 2px solid orange;
-    padding:0.5rem 1rem;
+    padding: 0.5rem;
+    padding-left: 0px;
     border-radius: 50px;
     font-size: 1rem;
     color: white;
     font-family: inherit;
+    transition: all 0.1s ease-in-out;
+}
+
+.search.appear{
+    display: flex;
+    width: 800px;
 }
 
 .search:focus{
@@ -53,6 +65,13 @@ body{
 
 .search::placeholder{
     color: white;
+    padding-left: 12px;
+}
+
+.fas.fa-search{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    transition: all 0.5s ease-in-out;
 }
 
 .profile-container{
@@ -86,9 +105,17 @@ body{
     align-self: center;
     justify-content: space-around;
     position: relative;
+    cursor: pointer;
 }
 
-.toggle-icon{
+.fas.fa-sun{
+    color: gold;
+    position: relative;
+    top: 2px;
+    right: 1px;
+}
+
+.fas.fa-moon{
     color: gold;
     position: relative;
     top: 2px;
@@ -96,13 +123,13 @@ body{
 }
 
 .toggle-ball{
-    width: 18px;
-    height: 18px;
+    width: 19px;
+    height: 19px;
     background-color: black;
     position: absolute;
-    right: 1px;
-    border-radius: 50%;
-    top: 6%;
+    right: 0.5px;
+    border-radius: 70%;
+    top: 2.6%;
     cursor: pointer;
 }
 
@@ -328,12 +355,11 @@ main{
 
 .toggle-ball.active{
     background-color: white;
-    transform: translateX(-20px);
+    transform: translateX(-19.9px);
 }
 
 .footer{
     bottom:0;
-    left:0;
     width:100%;
     background-color: orange;
     color: black;
@@ -349,7 +375,6 @@ main{
         height: 100%;
         width: auto;
     }
-    
     .overlay a {font-size: 20px}
     .overlay .closebtn {
         font-size: 50px;
@@ -367,13 +392,197 @@ main{
         right: 0px;
     }
 }
-@media only screen and (max-height: 300px) {
-    .search{
-        display: none;
-    }
-}
+
 @media only screen and (max-height: 200px) {
     .movie-list-img{
         display: none;
     }
+}
+
+@media only screen and (max-width: 1200px) {
+    .modal-backdrop-img{
+        transform: scale(80%);
+    }
+}
+@media only screen and (max-width: 1100px) {
+    .modal-backdrop-img{
+        display: none;
+    }
+    .overlay .closebtn {
+        font-size: 50px;
+        top: 45px;
+        right: 25px;
+    }
+    .search.appear{
+        display: flex;
+        width: 700px;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .toggle{
+        display: none;
+    }
+    .search.appear{
+        width: 600px;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .search.appear{
+        width: 550px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .search.appear{
+        width: 450px;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .search.appear{
+        width: 350px;
+    }
+}
+@media only screen and (max-width: 570px) {
+    .profile-picture{
+        display: none;
+    }
+    .profile-text{
+        display: none;
+    }
+    .modal-body{
+        font-size: 20px;
+        padding: 30px;
+    }
+    .footer{
+        font-size: 8px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .profile-container{
+        display: none;
+    }
+    .search{
+        left: 0;
+    }
+    .footer{
+        font-size: 5px;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+    .search{
+        display: none;
+    }
+    .fas.fa-search{
+        display: flex;
+    }
+    .movie-list-img{
+        display: none;
+    }
+    .movie-list-title{
+        font-size: 9px;
+    }
+    .movie-list-info{
+        font-size: 7px;
+    }
+    .main-title{
+        font-size: 40px;
+    }
+    .modal-header{
+        font-size: 20px;
+    }
+    .modal-body{
+        font-size: 10px;
+        padding: 20px;
+    }
+    .overlay .closebtn {
+        font-size: 30px;
+        top: 40px;
+        right: 5px;
+    }
+    .search.appear{
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 280px) {
+    .fas.fa-search{
+        transform: translateX(-5px);
+        margin-left: 0px;
+    }
+    .logo{
+        transform: scale(70%);
+    }
+    .logo-container{
+        transform: translateX(-25px);
+    }
+    .modal-header{
+        font-size: 10px;
+    }
+    .modal-body{
+        font-size: 5px;
+        padding: 10px;
+    }
+    .overlay .closebtn {
+        font-size: 30px;
+        top: 40px;
+        right: 5px;
+    }
+}
+@media only screen and (max-width: 254px) {
+    .search{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width: 204px) {
+    .logo{
+        display: none;
+    }
+    .overlay .closebtn {
+        font-size: 15px;
+        top: 45px;
+        right: 5px;
+    }
+    .footer{
+        font-size: 5px;
+    }
+}
+@media only screen and (max-width: 190px) {
+    .search{
+        font-size: 7px;
+    }
+    #rating{
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 160px) {
+    .main-title{
+        font-size: 20px;
+    }
+    .sub-title{
+        font-size: 10px;
+    }
+    .footer{
+        font-size: 3px;
+    }
+    .search{
+        font-size: 2px;
+    }
+    .overlay .closebtn {
+        font-size: 15px;
+        top: 45px;
+        right: 1px;
+    }
+}
+@media only screen and (max-width: 150px) {
+    .movie-list-title{
+        font-size: 5px;
+    }
+
 }

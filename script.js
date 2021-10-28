@@ -42,7 +42,7 @@ function showMovies(url, data) {
             <div id="info${id}" class="movie-list-info">
                 <h3 class="movie-list-title">${title}</h3>
                 
-                <span class="${getColor(vote_average)}"><i class="fas fa-star"></i> ${vote_average}</span>
+                <span id="rating" class="${getColor(vote_average)}"><i class="fas fa-star"></i> ${vote_average}</span>
             </div>
             
             <div class="movie-list-desc">
@@ -120,9 +120,9 @@ function closeModal() {
 }
 
 // TOGGLE
-const ball = document.querySelector(".toggle-ball");
+const ball = document.querySelector(".toggle");
 const items = document.querySelectorAll(
-    ".main, .navbar-container, .toggle, .search"
+    ".main, .navbar-container, .search, .toggle-ball"
 );
 
 
@@ -133,4 +133,11 @@ ball.addEventListener("click", () => {
     ball.classList.toggle("active");
 });
 
+const searchicon = document.querySelector("#search-icon");
+const logo = document.querySelector(".logo");
+const searchbar = document.querySelector(".search");
 
+searchicon.addEventListener("click", () => {
+    searchbar.classList.toggle("appear");
+    logo.classList.toggle("vanish");
+});
