@@ -91,6 +91,8 @@ function openModal(url, movie) {
             if (detailsData.results.length > 0){
                 var content = `
                 <h1 class="modal-header">${movie.title}</h1>
+                
+                <img class="modal-backdrop-img" src="${movie.backdrop_path? IMG_URL+movie.backdrop_path:"https://via.placeholder.com/500x281"}" alt="${movie.title}">
 
                 <div class="modal-body">
                     ${movie.overview}

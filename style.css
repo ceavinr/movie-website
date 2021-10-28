@@ -150,6 +150,7 @@ main{
     height: 420px;
     width: 300px;
     object-fit: cover;
+    transition: all 0.1s ease-in-out;
 }
 
 .movie-list-info{
@@ -239,6 +240,12 @@ main{
     background-color: orange;
     color:black;
     font-family: "Sen";
+}
+
+.modal-backdrop-img{
+    padding-top: 30px;
+    height: 562px;
+    width: 1000px;
 }
 
 .modal-body {
