@@ -134,10 +134,12 @@ ball.addEventListener("click", () => {
 });
 
 const searchicon = document.querySelector("#search-icon");
-const logo = document.querySelector(".logo");
+const vanish = document.querySelectorAll(".logo, .toggle");
 const searchbar = document.querySelector(".search");
 
 searchicon.addEventListener("click", () => {
+    vanish.forEach((item) => {
+        item.classList.toggle("vanish");
+    });
     searchbar.classList.toggle("appear");
-    logo.classList.toggle("vanish");
 });

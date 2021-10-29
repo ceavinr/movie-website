@@ -7,6 +7,30 @@ body{
     background-color: #151515;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-animation: autofill 0s forwards;
+  animation: autofill 0s forwards;
+}
+
+@keyframes autofill {
+  100% {
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+  }
+}
+
+@-webkit-keyframes autofill {
+  100% {
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+  }
+}
+
 .navbar{
     width: 100%;
     height: 50px;
@@ -20,6 +44,7 @@ body{
     display: flex;
     align-items: center;
     padding-left: 10px;
+    padding-right: 10px;
     height: 100%;
     color: white;
     font-family: "Sen", sans-serif;
@@ -36,21 +61,22 @@ body{
     color: orange;
     transition: all 0.5s ease-in-out;
 }
-
+/*
 .logo.vanish{
     display: none;
 }
-
+*/
 .search{
     background-color: transparent;
     border: 2px solid orange;
     padding: 0.5rem;
-    padding-left: 0px;
+    padding-left: 15px;
     border-radius: 50px;
     font-size: 1rem;
     color: white;
     font-family: inherit;
     transition: all 0.1s ease-in-out;
+    cursor: text;
 }
 
 .search.appear{
@@ -65,15 +91,13 @@ body{
 
 .search::placeholder{
     color: white;
-    padding-left: 12px;
 }
 
 .fas.fa-search{
-    padding-left: 1rem;
-    padding-right: 1rem;
-    transition: all 0.5s ease-in-out;
+    padding: 1rem;
+    cursor: pointer;
 }
-
+/*
 .profile-container{
     flex: 2;
     display: flex;
@@ -95,7 +119,7 @@ body{
     border-radius: 50%;
     object-fit: cover;
 }
-
+*/
 .toggle{
     width: 40px;
     height: 20px;
@@ -352,7 +376,11 @@ main{
 .toggle.active{
     background-color: black;
 }
-
+/*
+.toggle.vanish{
+    display: none;
+}
+*/
 .toggle-ball.active{
     background-color: white;
     transform: translateX(-19.9px);
@@ -421,9 +449,6 @@ main{
 
 
 @media only screen and (max-width: 1000px) {
-    .toggle{
-        display: none;
-    }
     .search.appear{
         width: 600px;
     }
@@ -439,17 +464,34 @@ main{
     }
 }
 
-@media only screen and (max-width: 670px) {
+@media only screen and (max-width: 720px) {
     .search.appear{
         width: 350px;
     }
 }
+@media only screen and (max-width: 630px) {
+    .search.appear{
+        width: 500px;
+    }
+    .logo.vanish{
+        display: none;
+    }
+    .toggle.vanish{
+        display: none;
+    }
+}
+
 @media only screen and (max-width: 570px) {
+    /*
     .profile-picture{
         display: none;
     }
     .profile-text{
         display: none;
+    }
+    */
+    .search.appear{
+        width: 450px;
     }
     .modal-body{
         font-size: 20px;
@@ -460,10 +502,18 @@ main{
     }
 }
 
+@media only screen and (max-width: 530px) {
+    .search.appear{
+        width: 400px;
+    }
+}
+
 @media only screen and (max-width: 500px) {
+    /*
     .profile-container{
         display: none;
     }
+    */
     .search{
         left: 0;
     }
@@ -473,7 +523,13 @@ main{
 
 }
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 470px) { 
+    .search.appear{
+        width: 380px;
+    }
+}
+
+@media only screen and (max-width: 450px) { 
     .search{
         display: none;
     }
@@ -502,7 +558,13 @@ main{
         right: 5px;
     }
     .search.appear{
-        width: 300px;
+        width: 330px;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .search.appear{
+        width: 290px;
     }
 }
 
@@ -510,7 +572,15 @@ main{
     .movie-list-img{
         display: none;
     }
+
 }
+
+@media only screen and (max-width: 360px) {
+    .search.appear{
+        width: 200px;
+    }
+}
+
 @media only screen and (max-width: 280px) {
     .fas.fa-search{
         transform: translateX(-5px);
@@ -535,15 +605,28 @@ main{
         right: 5px;
     }
 }
+
+@media only screen and (max-width: 270px) {
+    .search.appear{
+        width: 190px;
+    }
+}
+
+
 @media only screen and (max-width: 254px) {
     .search{
         font-size: 10px;
     }
-}
-@media only screen and (max-width: 204px) {
     .logo{
         display: none;
     }
+    .search.appear{
+        width: 130px;
+    }
+}
+
+
+@media only screen and (max-width: 204px) {
     .overlay .closebtn {
         font-size: 15px;
         top: 45px;
@@ -560,7 +643,9 @@ main{
     #rating{
         display: none;
     }
-
+    .search.appear{
+        width: 100px;
+    }
 }
 
 @media only screen and (max-width: 160px) {
@@ -573,18 +658,38 @@ main{
     .footer{
         font-size: 3px;
     }
-    .search{
-        font-size: 2px;
+    .search.active::placeholder{
+        transform: translate(-10px);
+        padding: 10px;
     }
     .overlay .closebtn {
         font-size: 15px;
         top: 45px;
         right: 1px;
     }
+    .search.appear{
+        width: 80px;
+    }
 }
 @media only screen and (max-width: 150px) {
     .movie-list-title{
         font-size: 5px;
     }
-
+    .fas.fa-search{
+        display: none;
+    }
+    .search.appear{
+        width: 80px;
+    }
+    .navbar-container{
+        padding-left: 16px;
+    }
+    .search{
+        display: flex;
+        width: 80px;
+        transform: translate(-7px);
+    }
+    .toggle{
+        display: none;
+    }
 }
